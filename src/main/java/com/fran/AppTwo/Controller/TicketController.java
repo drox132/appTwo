@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping ("/ticket")
 public class TicketController {
@@ -23,6 +25,12 @@ public class TicketController {
     @PostMapping ("/insertticket")
     public Ticket insertTicket (@RequestBody Ticket totalPrice) {
         return ticketService.insertTicket(totalPrice.getTotalPrice());
+    }
+
+    @PostMapping("/calculate/total/price")
+    public int calculateTotalPrice(@RequestBody List<Integer> priceList){
+        int finalPrice = ticketService.calculateTotalPrice(priceList);
+        return finalPrice;
     }
 
 }

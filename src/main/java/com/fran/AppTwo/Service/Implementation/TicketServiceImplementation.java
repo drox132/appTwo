@@ -6,6 +6,8 @@ import com.fran.AppTwo.Service.TicketService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class TicketServiceImplementation implements TicketService {
 
@@ -20,5 +22,12 @@ public class TicketServiceImplementation implements TicketService {
     @Override
     public Ticket insertTicket(int totalPrice) {
         return ticketRepository.insertTicket(totalPrice);
+    }
+
+    @Override
+    public int calculateTotalPrice(List<Integer> priceList) {
+        int totalPrice = priceList.stream()
+                .reduce(0, Integer::sum);
+        return totalPrice;
     }
 }
