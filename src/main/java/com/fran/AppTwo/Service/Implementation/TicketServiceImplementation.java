@@ -28,10 +28,14 @@ public class TicketServiceImplementation implements TicketService {
     public int totalprecioCompra(List<Integer> listaProductosComprados) {
 
         int  resultadoTotal=0;
-        for (int indice=0; indice < listaProductosComprados.size(); indice++ ){
-//
+     /*   for (int indice=0; indice < listaProductosComprados.size(); indice++ ){
+
             int numeroParaSumar= listaProductosComprados.get(indice);
             resultadoTotal= resultadoTotal+numeroParaSumar;
+        }*/
+
+        for (int particularPrice: listaProductosComprados){
+            resultadoTotal=resultadoTotal+particularPrice;
         }
         return resultadoTotal;
     }
