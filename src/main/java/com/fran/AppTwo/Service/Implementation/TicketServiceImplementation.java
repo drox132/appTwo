@@ -26,7 +26,14 @@ public class TicketServiceImplementation implements TicketService {
 
     @Override
     public int totalprecioCompra(List<Integer> listaProductosComprados) {
-        return 1;
+
+        int  resultadoTotal=0;
+        for (int indice=0; indice < listaProductosComprados.size(); indice++ ){
+//
+            int numeroParaSumar= listaProductosComprados.get(indice);
+            resultadoTotal= resultadoTotal+numeroParaSumar;
+        }
+        return resultadoTotal;
     }
 
 

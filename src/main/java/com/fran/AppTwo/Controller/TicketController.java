@@ -29,7 +29,10 @@ public class TicketController {
 
     @PostMapping ("/totalticketcompra")
     public int totalprecioCompra(@RequestBody List<Integer> listaProductosComprados) {
-        return 1;
+
+        return ticketService.totalprecioCompra(listaProductosComprados);
+
+
 
 
 
